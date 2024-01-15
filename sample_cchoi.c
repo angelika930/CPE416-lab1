@@ -16,12 +16,34 @@ void delay(u16 loop)
 
 
 
-void dim() 
+void dim(int led_num) 
 {
-        int a = 0;
-        led_on(0);
+        int brightness = 0; //0 = 
+        led_on(led_num);
         
         while (a < 100)
+        {
+                int b = 0;
+                while (b < 100) 
+                {       // Adjusts how long the brightness level stays
+                        led_on(led_num);
+                        delay(100-a);
+                        led_off(led_num);
+                        delay(a);
+                        b++;
+                }
+                a++;
+        }
+
+
+}
+
+void brighten() 
+{
+        int a = 100;
+        led_on(0);
+        
+        while (a > 0)
         {
                 int b = 0;
                 while (b < 100) 
@@ -32,14 +54,22 @@ void dim()
                         delay(a);
                         b++;
                 }
-                a++;
+                a--;
         }
 
 
 }
+
+
 int main(void) {
    init();  //initialize board hardware
    led_on(1);
-   dim();
+   led_on(0);
+
+   while(1){
+        dim(0);
+        dim(1);
+
+   }
    return 0;
 }
