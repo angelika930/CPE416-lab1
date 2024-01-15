@@ -18,7 +18,7 @@ void delay(u16 loop)
 
 void dim(int led_num) 
 {
-        int brightness = 0; //0 = 
+        int a = 0; //0 = 
         led_on(led_num);
         
         while (a < 100)
