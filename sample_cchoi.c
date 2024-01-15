@@ -18,43 +18,43 @@ void delay(u16 loop)
 
 void dim(int led_num) 
 {
-        int a = 0; //0 = 
+        int brightness = 0; //brightess = 0, darkest at = 99
         led_on(led_num);
         
-        while (a < 100)
+        while (brightness < 100)
         {
-                int b = 0;
-                while (b < 100) 
+                int pause_count = 0; 
+                while (pause_count < 100) 
                 {       // Adjusts how long the brightness level stays
                         led_on(led_num);
                         delay(100-a);
                         led_off(led_num);
                         delay(a);
-                        b++;
+                        pause_count++;
                 }
-                a++;
+                brightness++;
         }
 
 
 }
 
-void brighten() 
+void brighten(int led_num) 
 {
-        int a = 100;
-        led_on(0);
+        int brightness = 0; //brightess = 0, darkest at = 99
+        led_on(led_num);
         
-        while (a > 0)
+        while (brightness > 0)
         {
-                int b = 0;
-                while (b < 100) 
+                int pause_count = 0;
+                while (pause_count < 100) 
                 {       // Adjusts how long the brightness level stays
-                        led_on(1);
+                        led_on(led_num);
                         delay(100-a);
-                        led_off(1);
+                        led_off(led_num);
                         delay(a);
-                        b++;
+                        pause_count++;
                 }
-                a--;
+                brightness--;
         }
 
 
@@ -68,8 +68,9 @@ int main(void) {
 
    while(1){
         dim(0);
+        brighten(0);
         dim(1);
-
+        brighten(1);
    }
    return 0;
 }
