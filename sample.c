@@ -69,7 +69,7 @@ int main(void) {
 while(1)
 {
         brighten(0);
-        brighten(1)
+        brighten(1);
 }
 
 
