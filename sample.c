@@ -49,9 +49,9 @@ void brighten(int led_num)
                 while (pause_count < 100) 
                 {       // Adjusts how long the brightness level stays
                         led_on(led_num);
-                        delay(100-brightness);
-                        led_off(led_num);
                         delay(brightness);
+                        led_off(led_num);
+                        delay(100-brightness);
                         pause_count++;
                 }
                 brightness--;
