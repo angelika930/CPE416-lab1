@@ -27,9 +27,9 @@ void dim(int led_num)
                 while (pause_count < 100) 
                 {       // Adjusts how long the brightness level stays
                         led_on(led_num);
-                        delay(100-a);
+                        delay(100-brightness);
                         led_off(led_num);
-                        delay(a);
+                        delay(brightess);
                         pause_count++;
                 }
                 brightness++;
@@ -49,9 +49,9 @@ void brighten(int led_num)
                 while (pause_count < 100) 
                 {       // Adjusts how long the brightness level stays
                         led_on(led_num);
-                        delay(100-a);
+                        delay(100-brightness);
                         led_off(led_num);
-                        delay(a);
+                        delay(brightness);
                         pause_count++;
                 }
                 brightness--;
