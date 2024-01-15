@@ -69,8 +69,11 @@ int main(void) {
    while(1){
         dim(0);
         brighten(0);
+        delay(10);
         dim(1);
         brighten(1);
+        delay(10);
+
    }
    return 0;
 }
