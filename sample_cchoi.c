@@ -29,7 +29,7 @@ void dim(int led_num)
                         led_on(led_num);
                         delay(100-brightness);
                         led_off(led_num);
-                        delay(brightess);
+                        delay(brightness);
                         pause_count++;
                 }
                 brightness++;
