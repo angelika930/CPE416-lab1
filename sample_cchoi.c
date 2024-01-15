@@ -41,7 +41,7 @@ void dim(int led_num)
 void brighten(int led_num) 
 {
         int brightness = 0; //brightess = 0, darkest at = 99
-        led_on(led_num);
+        led_off(led_num);
         
         while (brightness > 0)
         {
@@ -63,9 +63,19 @@ void brighten(int led_num)
 
 int main(void) {
    init();  //initialize board hardware
-   led_on(1);
-   led_on(0);
+   led_off(1);
+   led_off(0);
 
+while(1)
+{
+        brighten(0);
+        brighten(1)
+}
+
+
+
+
+/*
    while(1){
         dim(0);
         brighten(0);
@@ -75,5 +85,6 @@ int main(void) {
         delay(10);
 
    }
+   */
    return 0;
 }
