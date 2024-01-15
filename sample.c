@@ -4,38 +4,87 @@
 #include <avr/interrupt.h>
 #include <stdio.h>
 
-void delay(int loops)
+void delay(u16 loop)
 {
+        u16 count = 0;
         while (count < loop)
         {
-                _delay_us(100);
+                _delay_us(1);
                 count ++;
         }
 }
 
 
-void dim() 
+
+void dim(int led_num) 
 {
-        int a = 0;
-        led_on(0);
+        int brightness = 0; //brightess = 0, darkest at = 99
+        led_on(led_num);
         
-        if (a < 10)
+        while (brightness < 100)
         {
-                led_on(1);
-                delay(10-a);
-
-                led_off(1);
-                delay(a);
-
-                a++
+                int pause_count = 0; 
+                while (pause_count < 100) 
+                {       // Adjusts how long the brightness level stays
+                        led_on(led_num);
+                        delay(100-brightness);
+                        led_off(led_num);
+                        delay(brightness);
+                        pause_count++;
+                }
+                brightness++;
         }
 
 
+}
+
+void brighten(int led_num) 
+{
+        int brightness = 0; //brightess = 0, darkest at = 99
+        led_off(led_num);
+        
+        while (brightness > 0)
+        {
+                int pause_count = 0;
+                while (pause_count < 100) 
+                {       // Adjusts how long the brightness level stays
+                        led_on(led_num);
+                        delay(100-brightness);
+                        led_off(led_num);
+                        delay(brightness);
+                        pause_count++;
+                }
+                brightness--;
+        }
+
 
 }
+
+
 int main(void) {
    init();  //initialize board hardware
-   led_on(1);
-   dim();
+   led_off(1);
+   led_off(0);
+
+while(1)
+{
+        brighten(0);
+        brighten(1)
+}
+
+
+
+
+/*
+   while(1){
+        dim(0);
+        brighten(0);
+        delay(10);
+        dim(1);
+        brighten(1);
+        delay(10);
+
+   }
+   */
    return 0;
 }
