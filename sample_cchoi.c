@@ -4,14 +4,16 @@
 #include <avr/interrupt.h>
 #include <stdio.h>
 
-void delay(int loops)
+void delay(u16 loop)
 {
+        u16 count = 0;
         while (count < loop)
         {
-                _delay_us(100);
+                _delay_us(1);
                 count ++;
         }
 }
+
 
 
 void dim() 
@@ -19,17 +21,19 @@ void dim()
         int a = 0;
         led_on(0);
         
-        if (a < 10)
+        while (a < 100)
         {
-                led_on(1);
-                delay(10-a);
-
-                led_off(1);
-                delay(a);
-
-                a++
+                int b = 0;
+                while (b < 100)
+                {
+                        led_on(1);
+                        delay(100-a);
+                        led_off(1);
+                        delay(a);
+                        b++;
+                }
+                a++;
         }
-
 
 
 }
