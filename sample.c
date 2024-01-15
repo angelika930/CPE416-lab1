@@ -40,7 +40,7 @@ void dim(int led_num)
 
 void brighten(int led_num) 
 {
-        int brightness = 0; //brightess = 0, darkest at = 99
+        int brightness = 100; //brightess = 0, darkest at = 99
         led_off(led_num);
         
         while (brightness > 0)
