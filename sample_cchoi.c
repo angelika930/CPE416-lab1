@@ -24,8 +24,8 @@ void dim()
         while (a < 100)
         {
                 int b = 0;
-                while (b < 100)
-                {
+                while (b < 100) 
+                {       // Adjusts how long the brightness level stays
                         led_on(1);
                         delay(100-a);
                         led_off(1);
