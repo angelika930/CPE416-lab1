@@ -18,7 +18,7 @@ void delay(u16 loop)
 
 void dim(int led_num) 
 {
-        int brightness = 100; //brightness = 0, darkest at = 99
+        int brightness = 0; //brightness = 0, darkest at = 99
         led_on(led_num);
         
         while (brightness < 100)
@@ -49,9 +49,9 @@ void brighten(int led_num)
                 while (pause_count < 100) 
                 {       // Adjusts how long the brightness level stays
                         led_on(led_num);
-                        delay(brightness);
-                        led_off(led_num);
                         delay(100-brightness);
+                        led_off(led_num);
+                        delay(brightness);
                         pause_count++;
                 }
                 brightness--;
@@ -63,28 +63,19 @@ void brighten(int led_num)
 
 int main(void) {
    init();  //initialize board hardware
-   led_off(1);
-   led_off(0);
 
-while(1)
+
+while(1) 
 {
-        brighten(0);
-        brighten(1);
+   brighten(0);
+   dim(0);
+   brighten(1);
+   dim(1);
+
 }
 
 
 
 
-/*
-   while(1){
-        dim(0);
-        brighten(0);
-        delay(10);
-        dim(1);
-        brighten(1);
-        delay(10);
-
-   }
-   */
    return 0;
 }
