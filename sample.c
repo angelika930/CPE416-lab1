@@ -3,6 +3,8 @@
 #include <avr/io.h>
 #include <avr/interrupt.h>
 #include <stdio.h>
+#include <stdbool.h>
+
 
 void delay(u16 loop)
 {
@@ -61,10 +63,61 @@ void brighten(int led_num)
 }
 
 
+void display() {
+	
+	clear_screen();
+	print_string("Angelika");
+	bool flag = false;
+	char one[50] = " Angelika Canete ";
+	char two[50] = " Christine Choi ";
+	while (1) {
+
+		if (flag == false) {
+
+			clear_screen();
+			while (get_btn() != 1) {
+				for (int i = 0; i < 24; i++) {
+					lcd_cursor(i % 8, 0);
+					print_string(two + (i % 16));
+					_delay_ms(200);
+					if (get_btn() == 1) {
+						flag = true;
+						break;
+					}
+				}
+				if (flag) { break; }
+
+			}
+		}
+
+		else if (flag) {
+			
+			flag = false;
+			clear_screen();
+			while (get_btn() != 1) {
+				for (int i = 0; i < 30; i++) {
+					lcd_cursor(i % 8, 0);
+					print_string(one + (i % 17));
+					_delay_ms(250);
+					if (get_btn() == 1) {
+						flag = false;
+						break;
+					}
+				}
+
+				if (flag == false) { break; }
+			}
+
+		}
+	}
+
+}
+
+
 int main(void) {
    init();  //initialize board hardware
 
-
+/*
 while(1) 
 {
    brighten(0);
@@ -73,7 +126,8 @@ while(1)
    dim(1);
 
 }
-
+*/
+display(); 
 
 
 
