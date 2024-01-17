@@ -1,3 +1,11 @@
+/*
+Names: Angelika Canete & Christine Choi
+Lab 1
+Program: This program displays the string "416" on the LCD Display, moving along the x and y axis by the user
+tilting the board.
+
+*/
+
 #include "globals.h"
 #include <util/delay.h>
 #include <avr/io.h>

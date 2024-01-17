@@ -1,3 +1,10 @@
+/*
+Names: Angelika Canete & Christine Choi
+Lab 1
+Program: This program brightens and dims two LED lights continously, one after the other.
+
+*/
+
 #include "globals.h"
 #include <util/delay.h>
 #include <avr/io.h>
@@ -119,7 +126,7 @@ void display() {
 int main(void) {
    init();  //initialize board hardware
 
-/*
+
 while(1) 
 {
    brighten(0);
@@ -128,8 +135,7 @@ while(1)
    dim(1);
 
 }
-*/
-display(); 
+
 
 
 

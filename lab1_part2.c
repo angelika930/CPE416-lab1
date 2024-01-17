@@ -1,3 +1,11 @@
+/*
+Names: Angelika Canete & Christine Choi
+Lab 1
+Program: This program scrolls a name across the LED display screen. When a button is pressed, it switches between our two names
+and scrolls continuously. 
+
+*/
+
 #include "globals.h"
 #include <util/delay.h>
 #include <avr/io.h>

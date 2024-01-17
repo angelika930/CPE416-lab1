@@ -1,3 +1,14 @@
+/*
+Names: Angelika Canete & Christine Choi
+Lab 1
+Program: This program implements a simple pong game. Using five LED lights, the program lights each one at a time sequentially.
+On the click of a button at either the left most or right most light, the delay speed increases; eventually ending the game
+when the button is pressed at one of the inner LED lights. At the end of the game, the LCD displays "Game Over" with the delay 
+speed displayed.
+
+*/
+
+
 #include "globals.h"
 #include <util/delay.h>
 #include <avr/io.h>
