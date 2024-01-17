@@ -64,7 +64,7 @@ void display() {
 			
 			clear_screen();
 			while (get_btn() != 1) {
-				for (int i = 0; i < 22; i++) {
+				for (int i = 0; i < 26; i++) {
 					lcd_cursor(0, 0);
 					print_string(one + i);
 					_delay_ms(300);
