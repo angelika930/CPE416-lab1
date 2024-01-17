@@ -31,8 +31,8 @@ void display() {
 	clear_screen();
 	print_string("Angelika");
 	bool flag = false;
-	char one[50] = " Angelika Canete ";
-	char two[50] = " Christine Choi ";
+	char one[50] = "         Angelika Canete ";
+	char two[50] = "          Christine Choi ";
 	while (1) {
 
 		if (flag == false) {
@@ -40,16 +40,21 @@ void display() {
 			clear_screen();
 			while (get_btn() != 1) {
                 lcd_cursor(7,0);
-                int col = 7;
-				for (int i = 0; i < 16; i++) {
-                    
-					lcd_cursor(7,0);
+              
+			
+				for (int i = 0; i < 25; i++) {
+				   	lcd_cursor(0,0);
 					print_string(two+i);
                     if (button_delay_check(300) == 1) {
                         flag = true;
                         break;
                     }
+			
+
 				}
+               
+				
+				
 				if (flag) { break; }
 
 			}
@@ -57,10 +62,9 @@ void display() {
 
 		else if (flag) {
 			
-			flag = false;
 			clear_screen();
 			while (get_btn() != 1) {
-				for (int i = 0; i < 17; i++) {
+				for (int i = 0; i < 22; i++) {
 					lcd_cursor(0, 0);
 					print_string(one + i);
 					_delay_ms(300);
